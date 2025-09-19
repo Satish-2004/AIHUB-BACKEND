@@ -10,4 +10,7 @@ import lombok.NoArgsConstructor;
 public class AuthResponse {
     private String jwtToken;
     private Long userId;
+    private String userName;
+
+
 }

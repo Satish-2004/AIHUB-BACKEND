@@ -61,4 +61,18 @@ public class UserService {
 
         userRepository.save(user);
     }
+
+    public void deletefromCart(Long userId, Long toolId){
+        User user=userRepository.findById(userId)
+                .orElseThrow(()-> new RuntimeException("User not found with id "+userId));
+
+        Tool tool=toolRepository.findById(toolId)
+                .orElseThrow(()-> new RuntimeException("Tool Not found with id "+toolId));
+
+        if (user.getTools().contains(tool)) {
+            user.getTools().remove(tool);
+        }
+
+        userRepository.save(user);
+    }
 }

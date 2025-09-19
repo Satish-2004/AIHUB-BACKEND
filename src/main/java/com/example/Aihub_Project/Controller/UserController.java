@@ -26,4 +26,9 @@ public class UserController {
         System.out.println("Triggered");
         userService.addToolToCart(userId, toolId);
     }
+
+    @DeleteMapping("userId/{userId}/toolId/{toolId}")
+    public void deleteTool(@PathVariable Long userId, @PathVariable Long toolId){
+        userService.deletefromCart(userId, toolId);
+    }
 }
